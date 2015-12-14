@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\customs">
+      <UniqueIdentifier>{17e4a1be-a4e5-499a-ac48-97deac38ff42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\data_models">
+      <UniqueIdentifier>{e46551d2-1102-4a29-af78-a21c65e16655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\messages">
+      <UniqueIdentifier>{0426df3f-565e-47d4-b690-16da68013057}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\pages">
+      <UniqueIdentifier>{bc52d4b8-69ba-4be2-aad9-570fbdb4045b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\rapid_json">
+      <UniqueIdentifier>{423e36eb-cbfe-4e9c-9952-f3d93813df07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\util">
+      <UniqueIdentifier>{fe4ac86a-a4d1-46aa-93f1-1eb2d9310e6c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\include">
+      <UniqueIdentifier>{3e3a6321-ebde-46f6-a39e-5ff510a80906}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\customs\FlowLayout.cpp">
+      <Filter>src\customs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\customs\Menu.cpp">
+      <Filter>src\customs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\data_models\TestDataCenter.cpp">
+      <Filter>src\data_models</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\message\Message.cpp">
+      <Filter>src\messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\message\MessageCenter.cpp">
+      <Filter>src\messages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\LittleTouchPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\MainPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\RootPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\ScrollviewTestPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\SuperPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\TestEntranceLayer.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\pages\TouchTestPage.cpp">
+      <Filter>src\pages</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\cocos_util.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CocosWindow.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\StringUtil.cpp">
+      <Filter>src\util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\LogicDirector.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\PageManager.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\customs\FlowLayout.h">
+      <Filter>src\customs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\customs\Menu.h">
+      <Filter>src\customs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\data_models\TestDataCenter.h">
+      <Filter>src\data_models</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\message\Message.h">
+      <Filter>src\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\message\MessageCenter.h">
+      <Filter>src\messages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\LittleTouchPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\MainPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\RootPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\ScrollviewTestPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\SuperPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\TestEntranceLayer.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\TouchTestPage.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\allocators.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\document.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\encodedstream.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\encodings.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\filereadstream.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\filewritestream.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\memorybuffer.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\memorystream.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\pointer.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\prettywriter.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\rapidjson.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\reader.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\stringbuffer.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\writer.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\error\en.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\error\error.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\biginteger.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\diyfp.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\dtoa.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\ieee754.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\itoa.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\meta.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\pow10.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\stack.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\strfunc.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\strtod.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\internal\swap.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\msinttypes\inttypes.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\rapid_json\msinttypes\stdint.h">
+      <Filter>src\rapid_json</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\cocos_util.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CocosWindow.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\Singleton.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\StateMachine.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\StringUtil.h">
+      <Filter>src\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\LogicDirector.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\PageManager.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\cocos_include.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\include_pages.h">
+      <Filter>src\include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
