@@ -10,6 +10,7 @@ bool touchTestPageRegistered = PageManager::getInstance()->registerPage(
 
 void TouchTestPage::loadUI()
 {
+    setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
     setTouchEnabled(true);
 
     //setTouchMode(kTouchesOneByOne);
