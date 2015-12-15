@@ -38,6 +38,8 @@ void TouchTestPage::loadUI()
         CocosUtil::markCorners(dog);
         // dog1, dog2, dog3.
         addChild(dog, "dog" + StringUtil::toString(i));
+        auto listener = EventListenerTouchOneByOne::create();
+        listener->onTouchBegan = CC_CALLBACK_0();
     }
 
     // register dogs for touch
