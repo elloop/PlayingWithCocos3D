@@ -5,9 +5,9 @@
 class CocosWindow {
 public:
     
-    static cocos2d::CCPoint center();
-    static cocos2d::CCPoint origin();
-    static cocos2d::CCSize size();
+    static cocos2d::Vec2 center();
+    static cocos2d::Vec2 origin();
+    static cocos2d::Size size();
 };
 
 #endif

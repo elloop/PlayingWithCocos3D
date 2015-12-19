@@ -19,7 +19,7 @@ void SuperPage::bindChildWithName(Node *child, const std::string &name)
 
 void SuperPage::addChild(Node * child, const std::string &name)
 {
-    addChild(child, child->getZOrder(), child->getTag());
+    addChild(child, child->getLocalZOrder(), child->getTag());
     bindChildWithName(child, name);
 }
 
@@ -37,7 +37,7 @@ void SuperPage::addChild(Node* child, int zOrder, int tag, const std::string &na
 
 void SuperPage::addChildRaw(Node * child)
 {
-    addChild(child, child->getZOrder(), child->getTag());
+    addChild(child, child->getLocalZOrder(), child->getTag());
 }
 
 void SuperPage::addChildRaw(Node * child, int zOrder)
@@ -53,7 +53,7 @@ void SuperPage::addChildRaw(Node* child, int zOrder, int tag)
 //----------------------------------- parent method -------------------------------
 void SuperPage::addChild(Node * child)
 {
-    Node::addChild(child, child->getZOrder(), child->getTag());
+    Node::addChild(child, child->getLocalZOrder(), child->getTag());
 }
 
 void SuperPage::addChild(Node * child, int zOrder)

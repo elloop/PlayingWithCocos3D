@@ -29,7 +29,7 @@ public:
 
     void init(const std::string &cfg);
 
-    TestDataItem* getTestDataItemByIndex(int index) const;
+    TestDataItem* getTestDataItemByIndex(TestSet::size_type index) const;
 
     int testDataCount() const 
     {

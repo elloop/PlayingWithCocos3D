@@ -74,8 +74,8 @@ void RootPage::addMenuButtons()
 
     MenuItemImage *quitBtn = MenuItemImage::create(
         "CloseNormal.png", "CloseSelected.png",
-        this,
-        CC_MENU_SELECTOR(RootPage::quitGame));
+        CC_CALLBACK_1(RootPage::quitGame, this));
+
     quitBtn->ignoreAnchorPointForPosition(true);
     auto btnSize = quitBtn->getContentSize();
     quitBtn->setPosition(origin + Point(winSize.width - btnSize.width,
@@ -83,8 +83,8 @@ void RootPage::addMenuButtons()
 
     MenuItemImage *homeBtn = MenuItemImage::create(
         "DemoIcon/home_small.png", "DemoIcon/home_small.png",
-        this,
-        CC_MENU_SELECTOR(RootPage::goHome));
+        CC_CALLBACK_1(RootPage::goHome, this));
+
     homeBtn->ignoreAnchorPointForPosition(true);
     btnSize = homeBtn->getContentSize();
     homeBtn->setPosition(origin + Point(0, winSize.height - btnSize.height));
@@ -97,7 +97,7 @@ void RootPage::addMenuButtons()
 
 void RootPage::quitGame(Ref *sender)
 {
-    CCDirector::sharedDirector()->end();
+    CCDirector::getInstance()->end();
 }
 
 void RootPage::goHome(Ref *sender)

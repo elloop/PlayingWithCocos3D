@@ -57,7 +57,7 @@ void LogicDirector::init()
     PageManager::getInstance()->init();
 
     auto scheduler = Director::getInstance()->getScheduler();
-    scheduler->scheduleUpdateForTarget(this, 0, false);
+    scheduler->scheduleUpdate(this, 0, false);
 }
 
 void LogicDirector::destroyInstance()

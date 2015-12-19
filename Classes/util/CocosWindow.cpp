@@ -1,14 +1,14 @@
 #include "CocosWindow.h"
 USING_NS_CC;
 
-CCPoint CocosWindow::center() {
-    return origin() + CCPoint(size().width/2, size().height/2);
+Vec2 CocosWindow::center() {
+    return origin() + Vec2(size().width/2, size().height/2);
 }
 
-CCSize CocosWindow::size() {
-    return CCDirector::sharedDirector()->getVisibleSize();
+Size CocosWindow::size() {
+    return CCDirector::getInstance()->getVisibleSize();
 }
 
-CCPoint CocosWindow::origin() {
-    return CCDirector::sharedDirector()->getVisibleOrigin();
+Vec2 CocosWindow::origin() {
+    return CCDirector::getInstance()->getVisibleOrigin();
 }

@@ -99,19 +99,19 @@ bool TestItem::initWithSize(float width, float height)
         auto oriSize = icon->getContentSize();
         icon->setScaleX(width / 3 / oriSize.width);
         icon->setScaleY(height / oriSize.height);
-        icon->setPosition(Point(0, 0));
+        icon->setPosition(Vec2(0, 0));
         CocosUtil::markCorners(icon, 3);
         addChild(icon);
 
-        LabelTTF *label = LabelTTF::create(data->description_.c_str(), "arial.ttf", 30);
+        //LabelTTF *label = LabelTTF::create(data->description_.c_str(), "arial.ttf", 30);
+        auto label = Label::createWithSystemFont(data->description_.c_str(), "arial.ttf", 30);
         CCAssert(label, "");
-        auto labelItem = MenuItemLabel::create(label, this,
-            menu_selector(TestItem::onItemSelected));
+        auto labelItem = MenuItemLabel::create(label, CC_CALLBACK_1(TestItem::onItemSelected, this));
         auto labelSize = labelItem->getContentSize();
         labelItem->setPosition(Vec2::ZERO);
         labelItem->setTag(itemId_);
         auto menu = Menu::create(labelItem, nullptr);
-        menu->setPosition(Point(width * 2 / 3, height / 2));
+        menu->setPosition(Vec2(width * 2 / 3, height / 2));
         addChild(menu);
         CocosUtil::markCorners(label, 2);
 

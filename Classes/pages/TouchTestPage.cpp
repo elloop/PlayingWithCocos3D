@@ -10,19 +10,25 @@ bool touchTestPageRegistered = PageManager::getInstance()->registerPage(
 
 void TouchTestPage::loadUI()
 {
-    setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
-    setTouchEnabled(true);
+    auto layerListenter = EventListenerTouchOneByOne::create();
+    layerListenter->onTouchBegan = CC_CALLBACK_2(TouchTestPage::onTouchBegan, this);
+    layerListenter->onTouchMoved = CC_CALLBACK_2(TouchTestPage::onTouchMoved, this);
+    layerListenter->onTouchEnded = CC_CALLBACK_2(TouchTestPage::onTouchEnded, this);
+    layerListenter->onTouchCancelled = CC_CALLBACK_2(TouchTestPage::onTouchCancelled, this);
+    _eventDispatcher->addEventListenerWithSceneGraphPriority(layerListenter, this);
+    //setTouchMode(Touch::DispatchMode::ONE_BY_ONE);
+    //setTouchEnabled(true);
 
     //setTouchMode(kTouchesOneByOne);
 
     auto winSize = CocosWindow::size();
     auto origin = CocosWindow::origin();
 
-    CCSize colorLayerSize(winSize.width / 4, winSize.height / 4);
+    Size colorLayerSize(winSize.width / 4, winSize.height / 4);
     auto colorLayer = LayerColor::create(CocosUtil::randomC4b());
     colorLayer->setContentSize(colorLayerSize);
     colorLayer->setPosition(CocosWindow::center() -
-                            CCPoint(colorLayerSize.width / 2, colorLayerSize.height / 2));
+                            Vec2(colorLayerSize.width / 2, colorLayerSize.height / 2));
     ADD_CHILD(colorLayer);
 
     // from left to right, add 3 dogs for touching.
@@ -33,13 +39,17 @@ void TouchTestPage::loadUI()
         dog->setTag(i);
         auto dogSize = dog->getContentSize();
         dog->setPosition(origin +
-                         CCPoint(dogSize.width / 2 + ( i - 1 ) * dogSize.width, dogSize.height / 2));
+                         Vec2(dogSize.width / 2 + ( i - 1 ) * dogSize.width, dogSize.height / 2));
 
         CocosUtil::markCorners(dog);
         // dog1, dog2, dog3.
         addChild(dog, "dog" + StringUtil::toString(i));
         auto listener = EventListenerTouchOneByOne::create();
-        listener->onTouchBegan = CC_CALLBACK_0();
+        listener->onTouchBegan = CC_CALLBACK_2(Dog::onTouchBegan, dog);
+        listener->onTouchMoved = CC_CALLBACK_2(Dog::onTouchMoved, dog);
+        listener->onTouchEnded = CC_CALLBACK_2(Dog::onTouchEnded, dog);
+        listener->onTouchCancelled = CC_CALLBACK_2(Dog::onTouchCancelled, dog);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, dog);
     }
 
     // register dogs for touch
@@ -51,17 +61,19 @@ void TouchTestPage::loadUI()
     // test Custom Menu
     auto menuItemImage1 = MenuItemImage::create(
         "DemoIcon/home_small.png", "DemoIcon/home_small.png",
-        this,menu_selector(TouchTestPage::menuCallback));
+        CC_CALLBACK_1(TouchTestPage::menuCallback, this));
 
     auto menuItemImage2 = MenuItemImage::create(
         "DemoIcon/home_small.png", "DemoIcon/home_small.png",
-        this, menu_selector(TouchTestPage::menuCallback));
-    menuItemImage2->setPosition(Point(menuItemImage1->getContentSize().width, 
+        CC_CALLBACK_1(TouchTestPage::menuCallback, this));
+
+    menuItemImage2->setPosition(Vec2(menuItemImage1->getContentSize().width, 
         0));
 
-    auto label = LabelTTF::create("hello", "arial.ttf", 20);
+    //auto label = LabelTTF::create("hello", "arial.ttf", 20);
+    auto label = Label::createWithSystemFont("hello", "arial.ttf", 20);
     auto menuItemLabel = MenuItemLabel::create(label);
-    menuItemLabel->setPosition(Point(menuItemImage2->getPositionX() + menuItemImage1->getContentSize().width, 0));
+    menuItemLabel->setPosition(Vec2(menuItemImage2->getPositionX() + menuItemImage1->getContentSize().width, 0));
 
     //using elloop::Menu;
     elloop::Menu *menu = elloop::Menu::create(menuItemImage1, menuItemImage2, menuItemLabel, nullptr);
@@ -111,7 +123,7 @@ bool TouchTestPage::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent)
         CCLOG("in color layer: (%.2f, %.2f)", posInLayer.x, posInLayer.y);
 
         // judge if click in the colorLayer.
-        CCRect rect;
+        Rect rect;
         rect.origin = Vec2::ZERO;
         rect.size = colorLayer->getContentSize();
         if ( rect.containsPoint(posInLayer) )
@@ -175,8 +187,12 @@ Dog* Dog::create(const char *name)
 
 bool Dog::initWithString(const char *name)
 {
-    if ( Sprite::initWithFile(name) )
+    if ( NodeGrid::init() )
     {
+        sprite_ = Sprite::create(name);
+        addChild(sprite_);
+        setAnchorPoint(Vec2(0.5, 0.5));
+        setContentSize(sprite_->getContentSize());
         return true;
     }
     return false;

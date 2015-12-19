@@ -39,10 +39,10 @@ protected:
 
 private:
     bool                isTouchingColorLayer_;
-    cocos2d::Point    touchBeginPoint_;
+    cocos2d::Vec2    touchBeginPoint_;
 };
 
-class Dog : public cocos2d::Sprite
+class Dog : public cocos2d::NodeGrid
 {
 public:
     static Dog* create(const char *name);
@@ -57,6 +57,7 @@ public:
 protected:
     Dog();
     ~Dog();
+    cocos2d::Sprite   *sprite_;
 };
 
 #endif

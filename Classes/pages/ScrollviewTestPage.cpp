@@ -39,7 +39,7 @@ void ScrollviewTestPage::onExitState()
 
 }
 
-void ScrollviewTestPage::menuCallback(cocos2d::CCObject * target)
+void ScrollviewTestPage::menuCallback(cocos2d::Ref * target)
 {
 
 }

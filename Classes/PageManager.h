@@ -50,8 +50,13 @@ private:
     StateMachine<RootPage>     *&stateMachineRef_;
 };
 
-template <typename T = SuperPage>
-T* PageManager::getPage(const std::string &name) const 
+// tosum: in implementation of template function, the default value of typename T
+// will be ignored, you need specify the default value in the decalaration only,
+// if i specify it in the implementation will get a warning.
+//template <typename T = SuperPage>
+
+template <typename T>
+T* PageManager::getPage(const std::string &name) const
 {
     auto iter = pages_.find(name);
     if (iter != pages_.end()) 

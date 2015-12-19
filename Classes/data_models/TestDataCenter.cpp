@@ -9,13 +9,11 @@ using rapidjson::Value;
 
 void TestDataCenter::init(const std::string &cfg)
 {
-    ssize_t size(0);
-    unsigned char *data = CCFileUtils::sharedFileUtils()->getFileData(
-        cfg.c_str(), "rb", &size);
-    if (data) 
+    Data data = FileUtils::getInstance()->getDataFromFile(cfg);
+    if (!data.isNull()) 
     {
         Document d;
-        std::string s((const char*)data, size);
+        std::string s((const char*)data.getBytes(), data.getSize());
         d.Parse<rapidjson::kParseDefaultFlags>(s.c_str());
         if (d.HasParseError()) 
         {
@@ -24,7 +22,7 @@ void TestDataCenter::init(const std::string &cfg)
         }
         CCAssert(d["items"].IsArray(), "items should be array");
         rapidjson::Value &root = d["items"];
-        for (int i=0; i<root.Size(); ++i) 
+        for (rapidjson::SizeType i=0; i<root.Size(); ++i) 
         {
             testSet_.push_back(new TestDataItem(root[i]["icon"].GetString(), 
                 root[i]["description"].GetString(), root[i]["page"].GetString()));
@@ -51,9 +49,11 @@ TestDataCenter::~TestDataCenter()
     TestSet().swap(testSet_);
 }
 
-TestDataItem* TestDataCenter::getTestDataItemByIndex(int index) const
+TestDataItem* TestDataCenter::getTestDataItemByIndex(TestSet::size_type index) const
 {
-    if (index > -1 && index < testSet_.size()) 
+    //if (index > -1 && index < testSet_.size())
+
+    if (index < testSet_.size())
     {
         return testSet_[index];
     }

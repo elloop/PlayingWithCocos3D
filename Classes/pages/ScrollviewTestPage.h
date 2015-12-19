@@ -22,14 +22,14 @@ public:
     void onExecuteState() override;
     void onExitState() override;
 
-    void menuCallback(cocos2d::CCObject * target);
+    void menuCallback(cocos2d::Ref * target);
 protected:
     ScrollviewTestPage();
     ~ScrollviewTestPage();
 
 private:
     bool                isTouchingColorLayer_;
-    cocos2d::CCPoint    touchBeginPoint_;
+    cocos2d::Vec2       touchBeginPoint_;
 };
 
 #endif
