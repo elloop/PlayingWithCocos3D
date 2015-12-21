@@ -102,8 +102,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
     <CustomBuildStep>
-      <Command>if not exist "$(OutDir)" mkdir "$(OutDir)"
-xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
+      <Command>
       </Command>
       <Outputs>$(TargetName).cab</Outputs>
       <Inputs>$(TargetFileName)</Inputs>
@@ -152,6 +151,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\message\Message.cpp" />
     <ClCompile Include="..\Classes\message\MessageCenter.cpp" />
     <ClCompile Include="..\Classes\PageManager.cpp" />
+    <ClCompile Include="..\Classes\pages\CCBPage.cpp" />
+    <ClCompile Include="..\Classes\pages\CCBTestPage.cpp" />
     <ClCompile Include="..\Classes\pages\LittleTouchPage.cpp" />
     <ClCompile Include="..\Classes\pages\MainPage.cpp" />
     <ClCompile Include="..\Classes\pages\RootPage.cpp" />
@@ -175,6 +176,8 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\message\Message.h" />
     <ClInclude Include="..\Classes\message\MessageCenter.h" />
     <ClInclude Include="..\Classes\PageManager.h" />
+    <ClInclude Include="..\Classes\pages\CCBPage.h" />
+    <ClInclude Include="..\Classes\pages\CCBTestPage.h" />
     <ClInclude Include="..\Classes\pages\LittleTouchPage.h" />
     <ClInclude Include="..\Classes\pages\MainPage.h" />
     <ClInclude Include="..\Classes\pages\RootPage.h" />
