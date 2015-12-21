@@ -52,12 +52,6 @@ void TouchTestPage::loadUI()
         _eventDispatcher->addEventListenerWithSceneGraphPriority(listener, dog);
     }
 
-    // register dogs for touch
-    /*auto touchDispatcher = CCDirector::sharedDirector()->getTouchDispatcher();
-    touchDispatcher->addTargetedDelegate(getChild<Dog>("dog1"), -1, true);
-    touchDispatcher->addTargetedDelegate(getChild<Dog>("dog2"), 0, true);
-    touchDispatcher->addTargetedDelegate(getChild<Dog>("dog3"), 0, true);*/
-
     // test Custom Menu
     auto menuItemImage1 = MenuItemImage::create(
         "DemoIcon/home_small.png", "DemoIcon/home_small.png",
@@ -82,12 +76,6 @@ void TouchTestPage::loadUI()
 
 void TouchTestPage::unloadUI()
 {
-    // delete touch delegate.
-    /*auto touchDispatcher = CCDirector::sharedDirector()->getTouchDispatcher();
-    touchDispatcher->removeDelegate(getChild<Dog>("dog1"));
-    touchDispatcher->removeDelegate(getChild<Dog>("dog2"));
-    touchDispatcher->removeDelegate(getChild<Dog>("dog3"));*/
-
     removeAllChildren();
 }
 

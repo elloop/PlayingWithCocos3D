@@ -1,6 +1,7 @@
 #include "AppDelegate.h"
 #include "LogicDirector.h"
 #include "util/cocos_util.h"
+#include "pages/CcbiHelloWorld.h"
 
 USING_NS_CC;
 
@@ -77,7 +78,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 
     CocosUtil::openLog();
 
-    LogicDirector::getInstance()->begin();
+    //LogicDirector::getInstance()->begin();
+
+    auto node = CcbiHelloWorld::create();
+    auto scene = Scene::create();
+    scene->addChild(node);
+    director->runWithScene(scene);
 
     return true;
 }
