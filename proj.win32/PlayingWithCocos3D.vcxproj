@@ -151,7 +151,6 @@
     <ClCompile Include="..\Classes\message\Message.cpp" />
     <ClCompile Include="..\Classes\message\MessageCenter.cpp" />
     <ClCompile Include="..\Classes\PageManager.cpp" />
-    <ClCompile Include="..\Classes\pages\CcbiHelloWorld.cpp" />
     <ClCompile Include="..\Classes\pages\CCBPage.cpp" />
     <ClCompile Include="..\Classes\pages\CCBTestPage.cpp" />
     <ClCompile Include="..\Classes\pages\LittleTouchPage.cpp" />
@@ -178,6 +177,7 @@
     <ClInclude Include="..\Classes\message\MessageCenter.h" />
     <ClInclude Include="..\Classes\PageManager.h" />
     <ClInclude Include="..\Classes\pages\CcbiHelloWorld.h" />
+    <ClInclude Include="..\Classes\pages\CcbiHelloWorldEnhanced.h" />
     <ClInclude Include="..\Classes\pages\CCBPage.h" />
     <ClInclude Include="..\Classes\pages\CCBTestPage.h" />
     <ClInclude Include="..\Classes\pages\LittleTouchPage.h" />

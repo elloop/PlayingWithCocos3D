@@ -20,7 +20,6 @@ class CCBPage
     friend PageManager;
 
 public:
-    CREATE_FUNC(CCBPage);
 
     void loadUI() override {};
     void unloadUI() override {};
@@ -31,19 +30,39 @@ public:
     ChildType* getCcbiChild(const std::string &name);
 
     // CCBMemberVariableAssigner
-    virtual bool onAssignCCBMemberVariable(cocos2d::Ref* target, const char* memberVariableName, cocos2d::Node* node);
-    virtual bool onAssignCCBCustomProperty(cocos2d::Ref* target, const char* memberVariableName, const cocos2d::Value& value);
+    bool onAssignCCBMemberVariable( cocos2d::Ref* target, 
+                                    const char* memberVariableName, 
+                                    cocos2d::Node* node) override;
+
+    bool onAssignCCBCustomProperty( cocos2d::Ref* target, 
+                                    const char* memberVariableName, 
+                                    const cocos2d::Value& value) override;
 
     // CCBSelectorResolver
-    virtual cocos2d::SEL_MenuHandler onResolveCCBCCMenuItemSelector(cocos2d::Ref * pTarget, const char* pSelectorName);
-    virtual cocos2d::SEL_CallFuncN onResolveCCBCCCallFuncSelector(cocos2d::Ref * pTarget, const char* pSelectorName);
-    virtual cocos2d::extension::Control::Handler onResolveCCBCCControlSelector(cocos2d::Ref * pTarget, const char* pSelectorName);
+    cocos2d::SEL_MenuHandler onResolveCCBCCMenuItemSelector(
+        cocos2d::Ref * pTarget, const char* pSelectorName) override
+    {
+        return nullptr;
+    }
 
-    virtual void onMenuItemSelected(const std::string &actionName, cocos2d::Ref *target);
+    cocos2d::SEL_MenuHandler onResolveCCBCCMenuItemSelectorPassSender(
+        cocos2d::Ref * pTarget, 
+        const char* pSelectorName, 
+        cocos2d::Ref* sender) override;
+
+    cocos2d::extension::Control::Handler onResolveCCBCCControlSelector(
+        cocos2d::Ref * pTarget, const char* pSelectorName) override
+    {
+        return nullptr;
+    }
+
+    virtual void onMenuItemSelected(const std::string &actionName, 
+                                    cocos2d::Ref *target);
+
     void clear();
 
 protected:
-    void onMenuItemSelected(cocos2d::Ref* target);
+    void onMenuItemEvent(cocos2d::Ref* target);
 
     CCBPage();
     virtual ~CCBPage();

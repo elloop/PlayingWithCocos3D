@@ -65,7 +65,8 @@ bool CCBPage::onAssignCCBCustomProperty(cocos2d::Ref* target, const char* member
     return false;
 }
 
-cocos2d::SEL_MenuHandler CCBPage::onResolveCCBCCMenuItemSelector(cocos2d::Ref * pTarget, const char* pSelectorName)
+cocos2d::SEL_MenuHandler CCBPage::onResolveCCBCCMenuItemSelectorPassSender(
+    cocos2d::Ref * pTarget, const char* pSelectorName, cocos2d::Ref* sender)
 {
     if (pTarget != this)
     {
@@ -73,30 +74,20 @@ cocos2d::SEL_MenuHandler CCBPage::onResolveCCBCCMenuItemSelector(cocos2d::Ref * 
     }
 
     std::string actionName(pSelectorName);
-    auto iter = actions_.find(pTarget);
-    if (iter == actions_.end()) 
+    auto iter = actions_.find(sender);
+    if (iter == actions_.end())
     {
-        actions_.insert({pTarget, actionName});
+        actions_.insert({ sender, actionName });
     }
     else
     {
         iter->second = actionName;
     }
 
-    return CC_MENU_SELECTOR(CCBPage::onMenuItemSelected);
+    return CC_MENU_SELECTOR(CCBPage::onMenuItemEvent);
 }
 
-cocos2d::SEL_CallFuncN CCBPage::onResolveCCBCCCallFuncSelector(cocos2d::Ref * pTarget, const char* pSelectorName)
-{
-    return nullptr;
-}
-
-cocos2d::extension::Control::Handler CCBPage::onResolveCCBCCControlSelector(cocos2d::Ref * pTarget, const char* pSelectorName)
-{
-    return nullptr;
-}
-
-void CCBPage::onMenuItemSelected(cocos2d::Ref* target)
+void CCBPage::onMenuItemEvent(cocos2d::Ref* target)
 {
     auto iter = actions_.find(target);
     if (iter != actions_.end()) 
@@ -107,7 +98,7 @@ void CCBPage::onMenuItemSelected(cocos2d::Ref* target)
 
 void CCBPage::onMenuItemSelected(const std::string &actionName, cocos2d::Ref *target)
 {
-    CCLOG("warning: default onMenuItemSelected called, actionName: %s\n", actionName.c_str());
+    CCLOG("warning: [override me].default onMenuItemSelected called, actionName: %s\n", actionName.c_str());
 }
 
 void CCBPage::clear()
@@ -119,4 +110,5 @@ void CCBPage::clear()
     }
     nodes_.clear();
 }
+
 

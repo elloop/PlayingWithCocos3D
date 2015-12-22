@@ -2,6 +2,7 @@
 #include "LogicDirector.h"
 #include "util/cocos_util.h"
 #include "pages/CcbiHelloWorld.h"
+#include "pages/CcbiHelloWorldEnhanced.h"
 
 USING_NS_CC;
 
@@ -77,13 +78,27 @@ bool AppDelegate::applicationDidFinishLaunching() {
     register_all_packages();
 
     CocosUtil::openLog();
+#ifdef WIN32
+    const int kMaxPath = 260;
+    char s_pszResourcePath[kMaxPath] = { 0 };
+    if (!s_pszResourcePath[0])
+    {
+        WCHAR  wszPath[kMaxPath] = { 0 };
+        int nNum = WideCharToMultiByte(CP_ACP, 0, wszPath,
+            GetCurrentDirectoryW(sizeof(wszPath), wszPath),
+            s_pszResourcePath, kMaxPath, NULL, NULL);
+        s_pszResourcePath[nNum] = '\\';
+    }
+    FileUtils::getInstance()->addSearchPath(s_pszResourcePath);
+#endif // WIN32
 
-    //LogicDirector::getInstance()->begin();
+    
+    LogicDirector::getInstance()->begin();
 
-    auto node = CcbiHelloWorld::create();
+    /*auto node = CcbiHelloWorldEnhanced::create();
     auto scene = Scene::create();
     scene->addChild(node);
-    director->runWithScene(scene);
+    director->runWithScene(scene);*/
 
     return true;
 }

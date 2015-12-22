@@ -96,9 +96,6 @@
     <ClCompile Include="..\Classes\pages\CCBTestPage.cpp">
       <Filter>src\pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\pages\CcbiHelloWorld.cpp">
-      <Filter>src\pages</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -264,6 +261,9 @@
       <Filter>src\pages</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\pages\CcbiHelloWorld.h">
+      <Filter>src\pages</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\pages\CcbiHelloWorldEnhanced.h">
       <Filter>src\pages</Filter>
     </ClInclude>
   </ItemGroup>

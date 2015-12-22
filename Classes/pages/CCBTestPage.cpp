@@ -29,7 +29,7 @@ void CCBTestPage::onExitState()
 
 void CCBTestPage::loadUI()
 {
-    loadFromCcbi("ccbi/baozao.ccbi");
+    loadFromCcbi("ccbi/hello.ccbi");
 }
 
 void CCBTestPage::unloadUI()
@@ -41,7 +41,7 @@ void CCBTestPage::onMenuItemSelected(const std::string &actionName, cocos2d::Ref
 {
     if ("onClick" == actionName) 
     {
-        auto label = getChild<Label>("mLabel");
+        auto label = getCcbiChild<Label>("mLabel");
         if (label) 
         {
             label->runAction(RotateBy::create(0.5, 360));
