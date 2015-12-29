@@ -29,7 +29,7 @@ void TouchTestPage::loadUI()
     colorLayer->setContentSize(colorLayerSize);
     colorLayer->setPosition(CocosWindow::center() -
                             Vec2(colorLayerSize.width / 2, colorLayerSize.height / 2));
-    ADD_CHILD(colorLayer);
+    ADD_CHILD_WITH_NAME(this, colorLayer);
 
     // from left to right, add 3 dogs for touching.
     for ( int i = 1; i < 4; ++i )
@@ -43,7 +43,7 @@ void TouchTestPage::loadUI()
 
         CocosUtil::markCorners(dog);
         // dog1, dog2, dog3.
-        addChild(dog, "dog" + StringUtil::toString(i));
+        addChild(dog, dog->getLocalZOrder(), "dog" + StringUtil::toString(i));
         auto listener = EventListenerTouchOneByOne::create();
         listener->onTouchBegan = CC_CALLBACK_2(Dog::onTouchBegan, dog);
         listener->onTouchMoved = CC_CALLBACK_2(Dog::onTouchMoved, dog);
@@ -71,7 +71,7 @@ void TouchTestPage::loadUI()
 
     //using elloop::Menu;
     elloop::Menu *menu = elloop::Menu::create(menuItemImage1, menuItemImage2, menuItemLabel, nullptr);
-    ADD_CHILD(menu);
+    ADD_CHILD_WITH_NAME(this, menu);
 }
 
 void TouchTestPage::unloadUI()
@@ -104,7 +104,9 @@ bool TouchTestPage::onTouchBegan(cocos2d::Touch *pTouch, cocos2d::Event *pEvent)
 {
     auto pos = pTouch->getLocation();
     CCLOG("(%.2f, %.2f)", pos.x, pos.y);
-    auto colorLayer = getChild<LayerColor>("colorLayer");
+    // use node's own getChildByName since V3.2
+    //auto colorLayer = getChild<LayerColor>("colorLayer");
+    auto colorLayer = getChildByName<LayerColor*>("colorLayer");
     if ( colorLayer )
     {
         auto posInLayer = colorLayer->convertToNodeSpace(pos) * colorLayer->getScale();
@@ -129,7 +131,9 @@ void TouchTestPage::onTouchMoved(cocos2d::Touch *pTouch, cocos2d::Event *pEvent)
 {
     if ( isTouchingColorLayer_ )
     {
-        auto colorLayer = getChild<LayerColor>("colorLayer");
+        // use node's own getChildByName since V3.2
+        //auto colorLayer = getChild<LayerColor>("colorLayer");
+        auto colorLayer = getChildByName<LayerColor*>("colorLayer");
         if ( colorLayer )
         {
             auto posDiff = pTouch->getLocation() - pTouch->getPreviousLocation();

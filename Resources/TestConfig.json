@@ -40,6 +40,11 @@
             "icon" : "DemoIcon/cocos_builder_icon.png",
             "description": "CCB Test",
             "page": "CCBTestPage"
+        },
+		{
+            "icon" : "DemoIcon/node.jpg",
+            "description": "Node Test",
+            "page": "NodeTestPage"
         }
     ]
 }

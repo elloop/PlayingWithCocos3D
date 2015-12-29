@@ -44,7 +44,7 @@ void MainPage::loadUI()
     scroll->setViewSize(winSize);
     scroll->setContentOffset(Point(0, -height + winSize.height));
     CocosUtil::markCorners(scroll);
-    ADD_CHILD(scroll);
+    ADD_CHILD_WITH_NAME(this, scroll);
 }
 
 void MainPage::onEnterState()

@@ -35,16 +35,15 @@ void RootPage::loadUI()
 
     backLayer_ = Layer::create();
     backLayer_->retain();
-    addChildRaw(backLayer_);
+    addChild(backLayer_);
 
     middleLayer_ = Layer::create();
     middleLayer_->retain();
-    addChildRaw(middleLayer_, 1);
+    addChild(middleLayer_, 1);
 
     frontLayer_ = Layer::create();
     frontLayer_->retain();
-    frontLayer_->setContentSize(Size(200, 200));
-    addChildRaw(frontLayer_, 2);
+    addChild(frontLayer_, 2);
 
 }
 
@@ -92,7 +91,7 @@ void RootPage::addMenuButtons()
     //using elloop::Menu;
     elloop::Menu *menu = elloop::Menu::create(quitBtn, homeBtn, nullptr);
     menu->setPosition(Vec2::ZERO);
-    addChildRaw(menu, 3);
+    addChild(menu, 3);
 }
 
 void RootPage::quitGame(Ref *sender)

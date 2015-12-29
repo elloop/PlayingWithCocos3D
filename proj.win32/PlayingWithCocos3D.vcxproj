@@ -155,6 +155,7 @@
     <ClCompile Include="..\Classes\pages\CCBTestPage.cpp" />
     <ClCompile Include="..\Classes\pages\LittleTouchPage.cpp" />
     <ClCompile Include="..\Classes\pages\MainPage.cpp" />
+    <ClCompile Include="..\Classes\pages\NodeTestPage.cpp" />
     <ClCompile Include="..\Classes\pages\RootPage.cpp" />
     <ClCompile Include="..\Classes\pages\ScrollviewTestPage.cpp" />
     <ClCompile Include="..\Classes\pages\SuperPage.cpp" />
@@ -182,6 +183,7 @@
     <ClInclude Include="..\Classes\pages\CCBTestPage.h" />
     <ClInclude Include="..\Classes\pages\LittleTouchPage.h" />
     <ClInclude Include="..\Classes\pages\MainPage.h" />
+    <ClInclude Include="..\Classes\pages\NodeTestPage.h" />
     <ClInclude Include="..\Classes\pages\RootPage.h" />
     <ClInclude Include="..\Classes\pages\ScrollviewTestPage.h" />
     <ClInclude Include="..\Classes\pages\SuperPage.h" />

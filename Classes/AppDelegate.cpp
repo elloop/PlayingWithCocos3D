@@ -95,6 +95,8 @@ bool AppDelegate::applicationDidFinishLaunching() {
     
     LogicDirector::getInstance()->begin();
 
+    auto x = LogicDirector::getInstance();
+
     /*auto node = CcbiHelloWorldEnhanced::create();
     auto scene = Scene::create();
     scene->addChild(node);

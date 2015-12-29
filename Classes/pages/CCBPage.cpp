@@ -31,7 +31,7 @@ void CCBPage::loadFromCcbi(const std::string &ccbi)
     // 解析完毕，可以使用Node了。
     if (node != NULL)
     {
-        addChildRaw(node);
+        addChild(node);
     }
 }
 
