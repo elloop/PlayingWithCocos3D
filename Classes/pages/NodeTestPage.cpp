@@ -84,7 +84,7 @@ void NodeTestPage::getGrandSon()
     }
 }
 
-void NodeTestPag::addMoreChild()
+void NodeTestPage::addMoreChild()
 {
     Node *c1 = Node::create();
     ADD_CHILD_WITH_NAME(this, c1);

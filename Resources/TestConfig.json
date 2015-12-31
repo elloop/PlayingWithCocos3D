@@ -45,6 +45,11 @@
             "icon" : "DemoIcon/node.jpg",
             "description": "Node Test",
             "page": "NodeTestPage"
+        },
+		{
+            "icon" : "DemoIcon/callfunc.jpg",
+            "description": "CallFunc Test",
+            "page": "CallFuncTestPage"
         }
     ]
 }
