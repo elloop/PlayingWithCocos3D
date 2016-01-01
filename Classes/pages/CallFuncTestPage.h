@@ -21,13 +21,22 @@ public:
     void onExecuteState() override;
     void onExitState() override;
 
-    void noparam();
-
     // button callbacks
     void btnCallback1(cocos2d::Ref *sender);
     void btnCallback2(cocos2d::Ref *sender);
     void btnCallback3(cocos2d::Ref *sender);
     void btnCallback4(cocos2d::Ref *sender);
+
+    struct UserData
+    {
+        UserData(int i=0) : i_(i) {}
+        int i_;
+    };
+
+    // callbacks for CallFuncs.
+    void callfunc1param(int i);
+    void callfunc2param(int i, int j);
+    void callfunc3param(int i, int j, UserData userData);
 
 protected:
     CallFuncTestPage();

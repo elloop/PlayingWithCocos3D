@@ -51,11 +51,6 @@ void CallFuncTestPage::loadUI()
 void CallFuncTestPage::onEnterState()
 {
     loadUI();
-    auto noparamCallback = CallFunc::create(
-        CC_CALLBACK_0(CallFuncTestPage::noparam, this));
-
-    runAction(Sequence::create(DelayTime::create(1.0), 
-        noparamCallback, nullptr));
 }
 
 void CallFuncTestPage::onExecuteState()
@@ -67,15 +62,12 @@ void CallFuncTestPage::onExitState()
     unloadUI();
 }
 
-void CallFuncTestPage::noparam()
-{
-    MessageBox("noparam called", "callfunc test");
-}
-
 void CallFuncTestPage::btnCallback1(cocos2d::Ref *sender)
 {
     // do CallFunc.
-    MessageBox("call1", "CallFuncTestPage");
+    // 
+    runAction(Sequence::create(DelayTime::create(0.5), CallFunc::create([](){}), nullptr));
+
 }
 
 void CallFuncTestPage::btnCallback2(cocos2d::Ref *sender)
