@@ -99,7 +99,7 @@
     <ClCompile Include="..\Classes\pages\NodeTestPage.cpp">
       <Filter>src\pages</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\pages\CallFuncTestPage.cpp">
+    <ClCompile Include="..\Classes\pages\CameraTest.cpp">
       <Filter>src\pages</Filter>
     </ClCompile>
   </ItemGroup>
@@ -275,7 +275,7 @@
     <ClInclude Include="..\Classes\pages\NodeTestPage.h">
       <Filter>src\pages</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\pages\CallFuncTestPage.h">
+    <ClInclude Include="..\Classes\pages\CameraTest.h">
       <Filter>src\pages</Filter>
     </ClInclude>
   </ItemGroup>
