@@ -1,6 +1,7 @@
 #ifndef TEST_COCOS_UTIL_H
 #define TEST_COCOS_UTIL_H
 #include "cocos2d.h"
+#include "util/DrawNode3D.h"
 #include <string>
 
 class CocosUtil {
@@ -18,6 +19,8 @@ public:
     static void markCorners(cocos2d::Node *parent, float radius = 5);
     static cocos2d::Color4F randomC4f(float alpah = 1.0);
     static cocos2d::Color4B randomC4b(unsigned char alpha = 255);
+
+    static cocos2d::DrawNode3D* drawGrid(cocos2d::Vec3 center, unsigned int lineCount, unsigned int gap);
 
     static void log(const char *format, ...);
     static void log() {}

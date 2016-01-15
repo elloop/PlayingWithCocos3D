@@ -1,7 +1,9 @@
 #include "util/cocos_util.h"
+#include "util/DrawNode3D.h"
 #include <cassert>
 #include <fstream>
 #include <ctime>
+
 USING_NS_CC;
 
 void CocosUtil::markPositionWithDot(
@@ -86,3 +88,34 @@ std::ofstream CocosUtil::logStream_;
 
 std::string CocosUtil::logName_("game.log");
 
+DrawNode3D* CocosUtil::drawGrid(Vec3 center, unsigned int lineCount, unsigned int gap)
+{
+    float length = (lineCount - 1) * gap;
+
+    float zBegin = center.z - length / 2;
+    float xBegin = center.x - length / 2;
+
+    auto drawNode = DrawNode3D::create();
+
+    for (unsigned i = 0; i < lineCount; ++i)
+    {
+        //draw x.
+        drawNode->drawLine(
+            Vec3(center.x - length / 2, 0.f, zBegin + i * gap),
+            Vec3(center.x + length / 2, 0.f, zBegin + i * gap),
+            Color4F(1, 0, 0, 1));
+
+        //draw z.
+        drawNode->drawLine(
+            Vec3(xBegin + i * gap, 0.f, center.z - length / 2),
+            Vec3(xBegin + i * gap, 0.f, center.z + length / 2),
+            Color4F(0, 0, 1, 1));
+    }
+
+    drawNode->drawLine(
+        Vec3(center.x, -length / 2, center.z),
+        Vec3(center.x, length / 2, center.z),
+        Color4F(0, 1, 0, 1));
+
+    return drawNode;
+}

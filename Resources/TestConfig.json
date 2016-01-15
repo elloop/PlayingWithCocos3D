@@ -48,8 +48,8 @@
         },
 		{
             "icon" : "DemoIcon/callfunc.jpg",
-            "description": "CallFunc Test",
-            "page": "CallFuncTestPage"
+            "description": "CameraTest Page",
+            "page": "CameraTest"
         }
     ]
 }

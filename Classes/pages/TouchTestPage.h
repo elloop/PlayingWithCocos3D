@@ -39,7 +39,7 @@ protected:
 
 private:
     bool                isTouchingColorLayer_;
-    cocos2d::Vec2    touchBeginPoint_;
+    cocos2d::Vec2       touchBeginPoint_;
 };
 
 class Dog : public cocos2d::NodeGrid
